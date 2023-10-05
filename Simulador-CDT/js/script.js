@@ -93,5 +93,42 @@ function generateTable() {
 
         tableBody.appendChild(tr);
     }
+    generateChart(capitalInstance);
 }
+
+function generateChart(capitalInstance) {
+    // Extract data for the chart from the capitalInstance data
+    let labels = capitalInstance.data.map(row => row['Periodo']);
+    let data = capitalInstance.data.map(row => row['Rendimientos']);
+
+    // Configuración del gráfico
+    let ctx = document.getElementById('capitalChart').getContext('2d');
+    let chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels, // Etiquetas para los puntos del gráfico. Ajusta según tus datos.
+            datasets: [
+                {
+                    label: 'Rendimientos',
+                    data: data,
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    fill: false
+                    
+                },
+            ]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    // Create the chart (this is a simulation, in a real environment we would use Chart.js functions)
+    console.log("Generating chart with labels:", labels, "and data:", data);
+}
+
 
