@@ -127,7 +127,7 @@ function generateChart(capitalInstance) {
         }
     });
 
-    // Create the chart (this is a simulation, in a real environment we would use Chart.js functions)
+    // Create the chart (this is a simulation, in a real environment we would use Chart.js functions
     console.log("Generating chart with labels:", labels, "and data:", data);
 }
 
