@@ -11,6 +11,12 @@ body {
     background-color: #f9f9f9;
     color: #333;
     padding: 20px;
+    background-image: url('../img/fondo.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed; /* Esto hará que la imagen de fondo permanezca fija al desplazarse por la página */
+
 }
 
 h2, h3 {
@@ -18,16 +24,22 @@ h2, h3 {
 }
 
 form {
-    background-color: #fff;
-    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 15px 15px;
     border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+    max-width: 1500px;
+    overflow: auto; /* Barra de desplazamiento */
+    /*Centrar el contenedor*/
+    margin: 0 auto;
 }
 
 label {
     display: block;
     margin-bottom: 8px;
     font-size: 16px;
+    /*Alinear a la izquierda */
+    text-align: left;    
 }
 
 input[type="number"] {
@@ -37,6 +49,7 @@ input[type="number"] {
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 8px;
+    
 }
 
 button {
@@ -77,3 +90,29 @@ th {
 tbody tr:nth-child(even) {
     background-color: #f9f9f9;
 }
+
+div.formulario {
+    margin-top: 15px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 12px;
+    padding: 5px 5px;
+
+}
+
+a.boton {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 5px 5px #999;
+}
+
+

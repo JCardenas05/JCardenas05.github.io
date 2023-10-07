@@ -19,48 +19,46 @@
 <body>
     <h2>Simulador de Capital</h2>
     <form id="capitalForm">
-        <label for="ahorro_inicial">Ahorro Inicial:</label>
-        <input type="number" id="ahorro_inicial" required><br><br>
 
-        <label for="ahorro_mensual">Ahorro Mensual:</label>
-        <input type="number" id="ahorro_mensual" required><br><br>
+        <div class="formulario">
+            <label for="ahorro_inicial">Ahorro Inicial:</label>
+            <input type="number" id="ahorro_inicial" required><br><br>
+        </div>
 
-        <label for="EA">EA (Tasa Efectiva Anual):</label>
-        <input type="number" id="EA" required><br><br>
+        <div class="formulario">
+            <label for="ahorro_mensual">Ahorro Mensual:</label>
+            <input type="number" id="ahorro_mensual" required><br><br>
+        </div>
 
-        <label for="plazo_años">Plazo (años):</label>
-        <input type="number" id="plazo_años" required><br><br>
+        <div class="formulario">
+            <label for="EA">EA (Tasa Efectiva Anual):</label>
+            <input type="number" id="EA" required><br><br>
+        </div>
 
-        <label for="periodo">Periodo:</label>
-        <input type="number" id="periodo" required><br><br>
+        <div class="formulario">
+            <label for="plazo_años">Plazo (años):</label>
+            <input type="number" id="plazo_años" required><br><br>
+        </div>
 
-        <label for="retencion">Retención:</label>
-        <input type="number" id="retencion" value="0"><br><br>
+        <div class="formulario">
+            <label for="periodo">Periodo:</label>
+            <input type="number" id="periodo" required><br><br>
+        </div>
 
-        <label for="res">Resolución (número de decimales):</label>
-        <input type="number" id="res" value="3"><br><br>
+        <div class="formulario">
+            <label for="retencion">Retención:</label>
+            <input type="number" id="retencion" value="0"><br><br>
+        </div>
 
-        <button type="button" onclick="generateTable()">Generar Tabla</button>
+        <div class="formulario">
+            <label for="res">Resolución (número de decimales):</label>
+            <input type="number" id="res" value="3"><br><br>
+        </div>
+
+        <button type="button" onclick="Rendimientos()">Calcular Rendimientos</button>
+
+
     </form>
-
-    <h3>Resultados:</h3>
-    <table id="resultsTable">
-        <thead>
-            <tr>
-                <th>Periodo</th>
-                <th>Inversión</th>
-                <th>Rendimientos</th>
-                <th>Ahorro</th>
-                <th>Saldo</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
-
-    
-
-<h3>Gráfico de Periodo vs Rendimiento</h3>
-<canvas id="capitalChart" width="400" height="200"></canvas>
 
 </body>
 </html>

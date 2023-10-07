@@ -50,13 +50,11 @@ class Capital {
     }
 }
 
-
-function generateTable() {
-    // Retrieve input values
+function obtenerCapitalInstance() {
     let ahorro_inicial = parseFloat(document.getElementById("ahorro_inicial").value);
     let ahorro_mensual = parseFloat(document.getElementById("ahorro_mensual").value);
     let EA = parseFloat(document.getElementById("EA").value);
-    let plazo_años = parseFloat(document.getElementById("plazo_años").value)*12;
+    let plazo_años = parseFloat(document.getElementById("plazo_años").value) * 12;
     let periodo = parseFloat(document.getElementById("periodo").value);
     let retencion = parseFloat(document.getElementById("retencion").value);
     let res = parseFloat(document.getElementById("res").value);
@@ -64,71 +62,18 @@ function generateTable() {
     // Create a Capital instance
     let capitalInstance = new Capital(ahorro_inicial, ahorro_mensual, EA, plazo_años, periodo, retencion, res);
 
-    // Generate the table based on the Capital instance data
-    let tableBody = document.querySelector("#resultsTable tbody");
-    tableBody.innerHTML = "";  // Clear the current table
+    // Convert the object to a JSON string
+    let capitalInstanceString = JSON.stringify(capitalInstance);
 
-    for (let row of capitalInstance.data) {
-        let tr = document.createElement("tr");
-
-        let tdPeriodo = document.createElement("td");
-        tdPeriodo.innerText = row.Periodo;
-        tr.appendChild(tdPeriodo);
-
-        let tdInversion = document.createElement("td");
-        tdInversion.innerText = row['Inversión'];
-        tr.appendChild(tdInversion);
-
-        let tdRendimientos = document.createElement("td");
-        tdRendimientos.innerText = row.Rendimientos;
-        tr.appendChild(tdRendimientos);
-
-        let tdAhorro = document.createElement("td");
-        tdAhorro.innerText = row.Ahorro;
-        tr.appendChild(tdAhorro);
-
-        let tdSaldo = document.createElement("td");
-        tdSaldo.innerText = row.Saldo;
-        tr.appendChild(tdSaldo);
-
-        tableBody.appendChild(tr);
-    }
-    generateChart(capitalInstance);
+    // Store the string in local storage
+    localStorage.setItem('data', capitalInstanceString);
 }
 
-function generateChart(capitalInstance) {
-    // Extract data for the chart from the capitalInstance data
-    let labels = capitalInstance.data.map(row => row['Periodo']);
-    let data = capitalInstance.data.map(row => row['Rendimientos']);
 
-    // Configuración del gráfico
-    let ctx = document.getElementById('capitalChart').getContext('2d');
-    let chart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: labels, // Etiquetas para los puntos del gráfico. Ajusta según tus datos.
-            datasets: [
-                {
-                    label: 'Rendimientos',
-                    data: data,
-                    borderColor: 'rgba(255, 99, 132, 1)',
-                    fill: false
-                    
-                },
-            ]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
+function Rendimientos() {
 
-    // Create the chart (this is a simulation, in a real environment we would use Chart.js functions
-    console.log("Generating chart with labels:", labels, "and data:", data);
+    obtenerCapitalInstance();
+    window.location.href = 'templates/graphs.html';
+    
 }
-
 
