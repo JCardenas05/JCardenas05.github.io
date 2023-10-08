@@ -231,18 +231,35 @@ thead th.active,tbody td.active {
 
 .export__file {
     position: relative;
+    padding: auto;
 }
 
 .export__file .export__file-btn {
     display: inline-block;
-    width: 2rem;
-    height: 2rem;
-    background: #fff6 url(../img/export.png) center / 80% no-repeat;
+    height: 3rem;
+    width: 3rem;
+    background: rgba(255, 255, 255, 0.301) url(../img/export.png) center / 80% no-repeat;
     border-radius: 50%;
     transition: .2s ease-in-out;
 }
 
 .export__file .export__file-btn:hover { 
+    background-color: #fff;
+    transform: scale(1.15);
+    cursor: pointer;
+}
+
+button.Regresar{
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.301) url(../img/editar.png) center / 70% no-repeat;
+    border-radius: 50%;
+    transition: .2s ease-in-out;
+    height: 3rem;
+    width: 3rem;
+    border: none
+}
+
+button.Regresar:hover { 
     background-color: #fff;
     transform: scale(1.15);
     cursor: pointer;
@@ -321,4 +338,9 @@ body {
 
 h1.Total {
     text-align: left;
+}
+
+div.buttons {
+    display: flex;
+    gap: 5px; 
 }
