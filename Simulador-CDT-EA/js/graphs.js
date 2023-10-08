@@ -5,7 +5,7 @@ function regresarAtras() {
 
 function recuperarCapitalInstance() {
     // Retrieve the string from local storage
-    let capitalInstanceString = localStorage.getItem('data');
+    let capitalInstanceString = localStorage.getItem('datos_tabla');
     console.log(capitalInstanceString);  // Add this line to see what's being retrieved
 
 
@@ -49,6 +49,14 @@ function generateTable() {
 
         tableBody.appendChild(tr);
     }
+    // Sumar toda la columna rendimientos
+    let sum = 0;
+
+    for (let i = 0; i < capitalInstance.data.length; i++) {
+        sum += capitalInstance.data[i].Rendimientos;
+    }
+
+    document.getElementById("Total").innerHTML = "Total: "+sum.toFixed(3);;    
     generateChart(capitalInstance);
 }
 
@@ -91,4 +99,36 @@ function generateChart(capitalInstance) {
 window.addEventListener('load', function() {
     generateTable();
 });
+
+
+function exportarCSV() {
+    var tabla = document.getElementById("resultsTable");
+    var filas = tabla.querySelectorAll("tr");
+    var csv = [];
+
+    for (var i = 0; i < filas.length; i++) {
+        var fila = filas[i];
+        var columnas = fila.querySelectorAll("td, th");
+        var csvFila = [];
+
+        for (var j = 0; j < columnas.length; j++) {
+            var columna = columnas[j];
+            csvFila.push(columna.innerText);
+        }
+
+        csv.push(csvFila.join(","));
+    }
+
+    var csvString = csv.join("\r\n");
+    var blob = new Blob([csvString], { type: 'text/csv;charset=utf-8;' });
+    var enlace = document.createElement("a");
+    
+    var url = URL.createObjectURL(blob);
+    enlace.href = url;
+    enlace.download = "tabla.csv";
+    
+    document.body.appendChild(enlace);
+    enlace.click();
+    document.body.removeChild(enlace);
+}
 

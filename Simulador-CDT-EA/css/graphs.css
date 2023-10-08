@@ -1,20 +1,10 @@
-/*
-Responsive HTML Table With Pure CSS - Web Design/UI Design
 
-Code written by:
-👨🏻‍⚕️ Coding Design (Jeet Saru)
-
-> You can do whatever you want with the code. However if you love my content, you can **SUBSCRIBED** my YouTube Channel.
-
-🌎link: www.youtube.com/codingdesign 
-*/
 
 * {
     margin: 0;
     padding: 0;
-
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: 'San Francisco', 'Helvetica Neue', sans-serif;
 }
 
 body {
@@ -247,7 +237,7 @@ thead th.active,tbody td.active {
     display: inline-block;
     width: 2rem;
     height: 2rem;
-    background: #fff6 url(images/export.png) center / 80% no-repeat;
+    background: #fff6 url(../img/export.png) center / 80% no-repeat;
     border-radius: 50%;
     transition: .2s ease-in-out;
 }
@@ -313,4 +303,22 @@ thead th.active,tbody td.active {
 .export__file .export__file-options img{
     width: 2rem;
     height: auto;
+}
+
+/*---------------------------------------------------------------------------------------------*/
+/* Resetting some default styles */
+
+body {
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 20px;
+    background-image: url('../img/fondo.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed; /* Esto hará que la imagen de fondo permanezca fija al desplazarse por la página */
+}
+
+h1.Total {
+    text-align: left;
 }
