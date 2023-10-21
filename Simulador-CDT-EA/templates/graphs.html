@@ -1,50 +1,62 @@
 <!DOCTYPE html>
 <html lang="en" title="Coding design">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Rendimiento CDT</title>
+    <script src="../js/graphs.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="../css/graphs.css" />
+    <link rel="icon" href="../img/icon.png" type="image/x-icon" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Rendimiento CDT</title>
-  <script src="../js/graphs.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <link rel="stylesheet" href="../css/graphs.css" />
-  <link rel="icon" href="../img/icon.png" type="image/x-icon" />
-</head>
-
-<body>
-  <main class="table">
-    <section class="table__header">
-      <h1>Rendimiento CDT</h1>
-      <h1 id="Total">Total</h1>
-      <div class="buttons">
-        <button class="Regresar" onclick="regresarAtras()" title="Regresar"></button>
-        <div class="export__file">
-          <label for="export-file" class="export__file-btn" title="Export File"></label>
-          <input type="checkbox" id="export-file" />
-          <div class="export__file-options">
-            <label>Export As &nbsp; &#10140;</label>
-            <label for="export-file" id="toCSV" onclick="exportarCSV()">CSV</label>
+  <body>
+    <main class="table">
+      <section class="table__header">
+        <h1>Rendimiento CDT</h1>
+        <h1 id="Total">Total</h1>
+        <div class="buttons">
+          <button
+            class="Regresar"
+            onclick="regresarAtras()"
+            title="Regresar"
+          ></button>
+          <div class="export__file">
+            <label
+              for="export-file"
+              class="export__file-btn"
+              title="Export File"
+            ></label>
+            <input type="checkbox" id="export-file" />
+            <div class="export__file-options">
+              <label>Export As &nbsp; &#10140;</label>
+              <label for="export-file" id="toCSV" onclick="exportarCSV()"
+                >CSV</label
+              >
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="table__body">
-      <table id="resultsTable">
-        <thead>
-          <tr>
-            <th>Periodo</th>
-            <th>Inversión</th>
-            <th>Rendimientos</th>
-            <th>Ahorro</th>
-            <th>Saldo</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-    </section>
-  </main>
-</body>
+      <section class="table__body">
+        <table id="resultsTable">
+          <thead>
+            <tr>
+              <th>Periodo</th>
+              <th>Inversión</th>
+              <th>Rendimientos</th>
+              <th>Ahorro</th>
+              <th>Saldo</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
 
+      <h3>Gráfico de Periodo vs Rendimiento</h3>
+      <canvas id="capitalChart" width="400" height="200"></canvas>
+      
+    </main>
+  </body>
 </html>
