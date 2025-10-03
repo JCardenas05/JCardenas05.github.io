@@ -1,45 +1,47 @@
 <!DOCTYPE html>
-<html lang="en" title="Coding design">
+<html lang="es" title="Coding design">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Rendimiento CDT</title>
-    <script src="../js/graphs.js"></script>
+    <script src="../js/graphs.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="../css/graphs.css" />
     <link rel="icon" href="../img/icon.png" type="image/x-icon" />
   </head>
 
   <body>
-    <main class="table">
-      <section class="table__header">
+    <main class="container">
+      <!-- Encabezado -->
+      <header class="header">
         <h1>Rendimiento CDT</h1>
-        <h1 id="Total">Total</h1>
-        <div class="buttons">
+        <h2 id="Total">Total</h2>
+        <div class="actions">
           <button
-            class="Regresar"
+            class="btn regresar"
             onclick="regresarAtras()"
             title="Regresar"
           ></button>
+
           <div class="export__file">
             <label
               for="export-file"
               class="export__file-btn"
-              title="Export File"
+              title="Exportar archivo"
             ></label>
             <input type="checkbox" id="export-file" />
             <div class="export__file-options">
-              <label>Export As &nbsp; &#10140;</label>
+              <label>Exportar como &nbsp; &#10140;</label>
               <label for="export-file" id="toCSV" onclick="exportarCSV()"
-                >CSV</label
-              >
+                >CSV</label>
             </div>
           </div>
         </div>
-      </section>
+      </header>
 
-      <section class="table__body">
+      <!-- Tabla -->
+      <section class="table__wrapper">
         <table id="resultsTable">
           <thead>
             <tr>
@@ -54,9 +56,13 @@
         </table>
       </section>
 
-      <h3>Gráfico de Periodo vs Rendimiento</h3>
-      <canvas id="capitalChart" width="400" height="200"></canvas>
-      
+      <!-- Gráfico -->
+      <section class="chart__section">
+        <h3>Gráfico de Periodo vs Rendimiento</h3>
+        <div class="chart__container">
+          <canvas id="capitalChart"></canvas>
+        </div>
+      </section>
     </main>
   </body>
 </html>

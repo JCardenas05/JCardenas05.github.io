@@ -132,3 +132,55 @@ function exportarCSV() {
     document.body.removeChild(enlace);
 }
 
+const ctx = document.getElementById('capitalChart').getContext('2d');
+
+const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+gradient.addColorStop(0, 'rgba(108, 0, 189, 0.8)');   // Morado intenso
+gradient.addColorStop(1, 'rgba(0, 173, 181, 0.8)');  // Verde agua
+
+new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: periodos,  // Tus periodos
+    datasets: [{
+      label: 'Rendimientos',
+      data: rendimientos, // Tus datos
+      backgroundColor: gradient,
+      borderRadius: 6,
+      hoverBackgroundColor: 'rgba(255, 193, 7, 0.9)', // Amarillo en hover
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        labels: {
+          color: '#333',
+          font: {
+            size: 14,
+            weight: 'bold'
+          }
+        }
+      }
+    },
+    scales: {
+      x: {
+        ticks: {
+          color: '#444'
+        },
+        grid: {
+          color: 'rgba(0,0,0,0.05)'
+        }
+      },
+      y: {
+        ticks: {
+          color: '#444'
+        },
+        grid: {
+          color: 'rgba(0,0,0,0.1)'
+        }
+      }
+    }
+  }
+});
